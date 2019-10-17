@@ -12,15 +12,10 @@ namespace RenessansApp.Controllers {
 	public class ApiController : Controller {
 		public IActionResult Valutes(){
 
-			// WebRequest req = WebRequest.Create("http://www.cbr.ru/scripts/XML_daily.asp?date_req=02/03/2002");
-			// WebResponse res = req.GetResponse();
-			// Stream imgStream = res.GetResponseStream();
-			// WebClient client = new WebClient();
-
 			List<Dictionary<string, object>> allValutes = new List<Dictionary<string, object>>();
 			string url = "http://www.cbr.ru/scripts/XML_daily.asp?date_req=02/03/2002";
-
 			XmlDocument xdoc = new XmlDocument();	
+			
 			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 			Encoding.GetEncoding("windows-1251");
 			xdoc.Load(url);

@@ -20,6 +20,38 @@ class Calendar extends Component {
 		return new Date(year, month, 0).getDate();
 	}
 
+	normalize = (value) => {
+		if (value.length < 2)
+			value = "0" + value
+		return value
+	}
+
+	selectDate = (type, value) => {
+		let selectedDate = {
+			day: this.state.day,
+			month: this.state.month,
+			year: this.state.year,
+		}
+
+		switch (type) {
+			case 'day':
+				selectedDate.day = value
+				break;
+			case 'month':
+				selectedDate.month = value
+				break;
+			case 'year':
+				selectedDate.year = value
+				break;
+			default:
+				break;
+		}
+
+		let dateStr = `${this.normalize(selectedDate.day)}/${this.normalize(selectedDate.month)}/${selectedDate.year}`
+		console.log(dateStr);
+		
+	}
+
 	render() {
 		const {day, month, year} = this.state
 
@@ -30,12 +62,19 @@ class Calendar extends Component {
 			let currentYear = year
 			let daysNumber = this.calcDaysNumber(+currentMonth, +currentYear)
 			for(let i = 0; i < daysNumber; i++) {
-				daysGrid.push(<div key={i}>{i+1}</div>)
+				daysGrid.push(
+					<div 
+						key={i} 
+						data-type="day"
+						data-value={i+1}
+						onClick={(e) => this.selectDate(e.target.dataset.type, e.target.dataset.value)}
+					>
+						{i+1}
+					</div>
+				)
 			}
 			return daysGrid;
 		}
-
-		const ss = days();
 
 		return (
 			<div className="calendar">
