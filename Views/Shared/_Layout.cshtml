@@ -39,6 +39,7 @@
             </div>
         </nav>
     </header>
+    <div id="entry"></div>
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
@@ -71,6 +72,8 @@
         </script>
     </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/js/build.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
