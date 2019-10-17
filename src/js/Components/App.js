@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Calendar from './Calendar'
+import Quotation from './Quotation'
 
 class App extends Component {
 	state = {
+		render: false, // костыль для ререндера (нужен из за того что не меняется длина массива valutes)
 		valutes: []
 	}
 
-	componentDidMount = () => {
-		axios.get(`${document.location.protocol}/api/valutes`)
-			.then(res => this.setState({ valutes: res.data }))
+	getExchangeRates = (date) => {
+		axios.get(`${document.location.protocol}/api/valutes?date=${date}`)
+			.then(res => this.setState({ 
+				valutes: res.data,
+				render: !this.state.render
+			}))
 			.catch(err => console.error(err))
 	}
 	
@@ -28,7 +33,13 @@ class App extends Component {
 
 		return (
 			<div className="container">
-				<Calendar/>
+				<div className="split">
+					<Calendar
+						callback = {this.getExchangeRates}
+					/>
+					<Quotation
+					/>
+				</div>
 				<table>
 					<tbody>
 					<tr>

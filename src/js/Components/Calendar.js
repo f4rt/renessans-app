@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Calendar extends Component {
 	state = {
-		day: "1",
-		month: "1",
+		day: new Date().getDate(),
+		month: new Date().getMonth() + 1,
 		year: "2019"
-	}
-
-	componentDidMount = () => {
-		let date = new Date;
-		let today = date.getMonth() + 1
-		this.setState({ 
-			day: date.getDate().toString(),
-			month: today.toString(),
-		});
 	}
 
 	calcDaysNumber = (month, year) => {
@@ -28,9 +20,9 @@ class Calendar extends Component {
 
 	selectDate = (type, value) => {
 		let selectedDate = {
-			day: this.state.day,
-			month: this.state.month,
-			year: this.state.year,
+			day: this.state.day.toString(),
+			month: this.state.month.toString(),
+			year: this.state.year.toString(),
 		}
 
 		switch (type) {
@@ -48,10 +40,24 @@ class Calendar extends Component {
 		}
 
 		let dateStr = `${this.normalize(selectedDate.day)}/${this.normalize(selectedDate.month)}/${selectedDate.year}`
-		console.log(dateStr);
+		this.props.callback(dateStr)
 		
 	}
 
+	setMonth = (e) => {
+		this.setState({ month:  e.target.value});
+		this.selectDate('month', e.target.value)
+	}
+
+	setYear = (e) => {
+		this.setState({ year:  e.target.value});
+		this.selectDate('year', e.target.value)
+	}
+
+	componentDidMount = () => {
+		this.selectDate('year', "2019")
+	}
+	
 	render() {
 		const {day, month, year} = this.state
 
@@ -79,7 +85,7 @@ class Calendar extends Component {
 		return (
 			<div className="calendar">
 				<div className="calendar__top-bar">
-					<select onChange={(e) => this.setState({ month: e.target.value })} value={month}>
+					<select onChange={this.setMonth} value={month}>
 						<option value="1">Январь</option>
 						<option value="2">Февраль</option>
 						<option value="3">Март</option>
@@ -93,7 +99,7 @@ class Calendar extends Component {
 						<option value="11">Ноябрь</option>
 						<option value="12">Декабрь</option>
 					</select>
-					<select onChange={(e) => this.setState({ year: e.target.value })} value={year}>
+					<select onChange={this.setYear} value={year}>
 						<option value="2005">2005</option>
 						<option value="2006">2006</option>
 						<option value="2007">2007</option>

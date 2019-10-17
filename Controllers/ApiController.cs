@@ -10,10 +10,11 @@ using System.IO;
 
 namespace RenessansApp.Controllers {
 	public class ApiController : Controller {
-		public IActionResult Valutes(){
+		public IActionResult Valutes(string date) {
+			Console.WriteLine(date);
 
 			List<Dictionary<string, object>> allValutes = new List<Dictionary<string, object>>();
-			string url = "http://www.cbr.ru/scripts/XML_daily.asp?date_req=02/03/2002";
+			string url = $"http://www.cbr.ru/scripts/XML_daily.asp?date_req={date}";
 			XmlDocument xdoc = new XmlDocument();	
 			
 			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -33,6 +34,29 @@ namespace RenessansApp.Controllers {
 			}
 
 			return Json(allValutes);
+		}
+		public IActionResult Quotation(string valuteId, string startDate, string endDate) {
+
+			Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
+			List<string> dates = new List<string>();
+			List<string> values = new List<string>();
+			string url = $"http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1={startDate}&date_req2={endDate}&VAL_NM_RQ={valuteId}";
+			XmlDocument xdoc = new XmlDocument();
+			
+			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+			Encoding.GetEncoding("windows-1251");
+			xdoc.Load(url);
+			XmlNodeList records = xdoc.SelectNodes("//Record");
+
+			foreach (XmlElement record in records) {
+				dates.Add(record.GetAttribute("Date"));
+				values.Add(record.LastChild.InnerText);
+			}
+
+			data.Add("dates", dates);
+			data.Add("values", values);
+
+			return Json(data);
 		}
 	}
 }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MyApps\\sharpy\\RenessansApp\\RenessansApp.csproj": {}
+    "E:\\MY_PROJECTS\\sharpy\\renessans-app\\RenessansApp.csproj": {}
   },
   "projects": {
-    "C:\\MyApps\\sharpy\\RenessansApp\\RenessansApp.csproj": {
+    "E:\\MY_PROJECTS\\sharpy\\renessans-app\\RenessansApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MyApps\\sharpy\\RenessansApp\\RenessansApp.csproj",
+        "projectUniqueName": "E:\\MY_PROJECTS\\sharpy\\renessans-app\\RenessansApp.csproj",
         "projectName": "RenessansApp",
-        "projectPath": "C:\\MyApps\\sharpy\\RenessansApp\\RenessansApp.csproj",
-        "packagesPath": "C:\\Users\\Попова\\.nuget\\packages\\",
-        "outputPath": "C:\\MyApps\\sharpy\\RenessansApp\\obj\\",
+        "projectPath": "E:\\MY_PROJECTS\\sharpy\\renessans-app\\RenessansApp.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "E:\\MY_PROJECTS\\sharpy\\renessans-app\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Попова\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
