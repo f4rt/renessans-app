@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MyApps\\sharpy\\renessansTest\\RenessansApp\\RenessansApp.csproj": {}
+    "C:\\MyApps\\sharpy\\RenessansApp\\RenessansApp.csproj": {}
   },
   "projects": {
-    "C:\\MyApps\\sharpy\\renessansTest\\RenessansApp\\RenessansApp.csproj": {
+    "C:\\MyApps\\sharpy\\RenessansApp\\RenessansApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MyApps\\sharpy\\renessansTest\\RenessansApp\\RenessansApp.csproj",
+        "projectUniqueName": "C:\\MyApps\\sharpy\\RenessansApp\\RenessansApp.csproj",
         "projectName": "RenessansApp",
-        "projectPath": "C:\\MyApps\\sharpy\\renessansTest\\RenessansApp\\RenessansApp.csproj",
+        "projectPath": "C:\\MyApps\\sharpy\\RenessansApp\\RenessansApp.csproj",
         "packagesPath": "C:\\Users\\Попова\\.nuget\\packages\\",
-        "outputPath": "C:\\MyApps\\sharpy\\renessansTest\\RenessansApp\\obj\\",
+        "outputPath": "C:\\MyApps\\sharpy\\RenessansApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -57,6 +57,10 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "System.Text.Encoding.CodePages": {
+              "target": "Package",
+              "version": "[4.6.0, )"
             }
           },
           "imports": [
