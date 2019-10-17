@@ -9,8 +9,8 @@ using System.Xml;
 using System.IO;
 
 namespace RenessansApp.Controllers {
-	public class MainController : Controller {
-		public IActionResult Index(){
+	public class ApiController : Controller {
+		public IActionResult Valutes(){
 
 			// WebRequest req = WebRequest.Create("http://www.cbr.ru/scripts/XML_daily.asp?date_req=02/03/2002");
 			// WebResponse res = req.GetResponse();

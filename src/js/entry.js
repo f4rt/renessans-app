@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Test from './Components/Test'
+import App from './Components/App'
 
 const root = document.getElementById('entry')
 
 if (root) {
 	ReactDOM.render(
-		<Test/>, 
+		<App/>, 
 		root
 	)
 }
