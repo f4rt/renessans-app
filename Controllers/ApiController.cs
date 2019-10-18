@@ -50,7 +50,7 @@ namespace RenessansApp.Controllers {
 
 			foreach (XmlElement record in records) {
 				dates.Add(record.GetAttribute("Date"));
-				values.Add(record.LastChild.InnerText);
+				values.Add(record.LastChild.InnerText.Replace(',', '.'));
 			}
 
 			data.Add("dates", dates);

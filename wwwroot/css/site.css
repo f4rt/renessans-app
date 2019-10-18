@@ -29,38 +29,29 @@ html {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+  background-color: #e3e3e9;
 }
 
 .container {
-  max-width: 1360px;
+  max-width: 1600px;
+}
+
+.block__title {
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
 .calendar {
   max-width: 280px;
+  padding: 8px;
+  background-color: #fff;
+  margin-bottom: 40px;
 }
 
 .calendar__top-bar {
@@ -75,6 +66,7 @@ body {
 .calendar__days {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 8px;
 }
 
 .calendar__days div {
@@ -83,9 +75,61 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+}
+
+.calendar__days div.active {
+  background-color: #b9193c;
+  color: #fff;
 }
 
 .split {
   display: flex;
   justify-content: space-between;
+  position: relative;
+}
+
+.side {
+  position: sticky;
+  top: 16px;
+}
+
+table {
+  display: table;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  font-size: 14px;
+}
+
+table tr {
+  cursor: pointer;
+}
+
+
+table tr:first-child {
+  background-color: #4b4b97;
+  color: #fff;
+}
+
+table tr:nth-child(even) {
+  background-color: #f7f7fa;
+}
+
+table tr:hover {
+  background-color: rgb(209, 209, 209);
+}
+
+table tr:first-child {
+  background-color: #4b4b97;
+}
+
+table tr.active {
+  background-color: #b9193c;
+  color: #fff;
+}
+
+table td {
+  padding: 8px;
+  border: 1px solid #dbdbdb;
 }

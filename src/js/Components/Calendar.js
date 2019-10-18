@@ -28,6 +28,7 @@ class Calendar extends Component {
 		switch (type) {
 			case 'day':
 				selectedDate.day = value
+				this.setState({ day: value });
 				break;
 			case 'month':
 				selectedDate.month = value
@@ -70,10 +71,11 @@ class Calendar extends Component {
 			for(let i = 0; i < daysNumber; i++) {
 				daysGrid.push(
 					<div 
-						key={i} 
+						key={i}
+						className={day == i+1 ? 'active': ''}
 						data-type="day"
 						data-value={i+1}
-						onClick={(e) => this.selectDate(e.target.dataset.type, e.target.dataset.value)}
+						onClick={ i+1 <= new Date().getDate() ? (e) => this.selectDate(e.target.dataset.type, e.target.dataset.value) : false}
 					>
 						{i+1}
 					</div>
@@ -82,22 +84,39 @@ class Calendar extends Component {
 			return daysGrid;
 		}
 
+		const monthOptions = () => {
+			let months = [
+				'Январь',
+				'Февраль',
+				'Март',
+				'Апрель',
+				'Май',
+				'Июнь',
+				'Июль',
+				'Август',
+				'Сентябрь',
+				'Октябрь',
+				'Ноябрь',
+				'Декабрь',
+			]
+
+			let options = []
+
+			for (let i = 1; i < months.length+1; i++) {
+				let isDisabled = i > new Date().getMonth() + 1
+				options.push(
+					<option key={i} disabled={isDisabled} value={i}>{months[i-1]}</option>
+				)
+			}
+
+			return options;
+		}
+
 		return (
 			<div className="calendar">
 				<div className="calendar__top-bar">
 					<select onChange={this.setMonth} value={month}>
-						<option value="1">Январь</option>
-						<option value="2">Февраль</option>
-						<option value="3">Март</option>
-						<option value="4">Апрель</option>
-						<option value="5">Май</option>
-						<option value="6">Июнь</option>
-						<option value="7">Июль</option>
-						<option value="8">Август</option>
-						<option value="9">Сентябрь</option>
-						<option value="10">Октябрь</option>
-						<option value="11">Ноябрь</option>
-						<option value="12">Декабрь</option>
+						{monthOptions()}
 					</select>
 					<select onChange={this.setYear} value={year}>
 						<option value="2005">2005</option>
